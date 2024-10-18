@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/simulado.css">
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@latest/build/jwt-decode.min.js"></script>
+
+    <title>Simulados</title>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Cabeçalho com seta de voltar e botão "Criar Simulado" -->
+        <header class="simulado-header">
+            <span class="back-arrow">&lt;</span>
+            <h1>Simulados</h1>
+            <button class="create-simulado">Criar Simulado</button>
+        </header>
+
+        <!-- Contêiner de simulados -->
+        <section class="simulado-container">
+            <!-- Meus Simulados -->
+            <div class="section-title">Meus Simulados</div>
+            <div class="simulado-list" id="meus-simulados">
+                <div class="simulado-card">
+                    <div class="simulado-info" onclick="showSimuladoInfo('Simulado 1', 'Descrição do Simulado 1', 10, ['Módulo 1', 'Módulo 2'])">
+                        <h2>Simulado 1</h2>
+                        <div class="dificuldade">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="simulado-actions">
+                        <button class="like-btn">👍</button>
+                        <button class="dislike-btn">👎</button>
+                    </div>
+                </div>
+
+                <div class="simulado-card">
+                    <div class="simulado-info" onclick="showSimuladoInfo('Simulado 2', 'Descrição do Simulado 2', 15, ['Módulo 1', 'Módulo 3'])">
+                        <h2>Simulado 2</h2>
+                        <div class="dificuldade">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="simulado-actions">
+                        <button class="like-btn">👍</button>
+                        <button class="dislike-btn">👎</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Linha divisória com sombreamento -->
+            <div class="divider"></div>
+            
+            <!-- Simulados Disponíveis -->
+            <div class="section-title">Simulados Disponíveis</div>
+            <div class="simulado-list" id="simulados-disponiveis">
+                <div class="simulado-card">
+                    <div class="simulado-info" onclick="showSimuladoInfo('Simulado 3', 'Descrição do Simulado 3', 10, ['Módulo 2', 'Módulo 4'])">
+                        <h2>Simulado 3</h2>
+                        <div class="dificuldade">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="simulado-actions">
+                        <button class="like-btn">👍</button>
+                        <button class="dislike-btn">👎</button>
+                    </div>
+                </div>
+                
+                <div class="simulado-card">
+                    <div class="simulado-info" onclick="showSimuladoInfo('Simulado 4', 'Descrição do Simulado 4', 12, ['Módulo 1', 'Módulo 3'])">
+                        <h2>Simulado 4</h2>
+                        <div class="dificuldade">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <div class="simulado-actions">
+                        <button class="like-btn">👍</button>
+                        <button class="dislike-btn">👎</button>
+                    </div>
+                </div>
+                
+                <div class="simulado-card">
+                    <div class="simulado-info" onclick="showSimuladoInfo('Simulado 5', 'Descrição do Simulado 5', 14, ['Módulo 2', 'Módulo 4'])">
+                        <h2>Simulado 5</h2>
+                        <div class="dificuldade">
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                            <span class="star filled">★</span>
+                        </div>
+                    </div>
+                    <div class="simulado-actions">
+                        <button class="like-btn">👍</button>
+                        <button class="dislike-btn">👎</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pop-up com informações do Simulado -->
+        <div class="simulado-popup" id="simulado-popup">
+            <div class="popup-content">
+                <span class="close-popup" id="close-popup">&times;</span>
+                <h2 id="popup-title">Título do Simulado</h2>
+                <p id="popup-description">Descrição do simulado.</p>
+                <p id="popup-questions">Quantidade de questões: <strong>10</strong></p>
+                <p id="popup-modules">Módulos: <strong>Módulo 1, Módulo 2</strong></p>
+                <button class="start-btn-popup">Iniciar Simulado</button>
+            </div>
+        </div>
+        
+        <!-- Rodapé interativo -->
+        <footer class="footer-nav">
+            <div class="nav-item"><i class="fas fa-home"></i> Home</div>
+            <div class="nav-item"><i class="fas fa-clipboard"></i> Testes</div>
+            <div class="nav-item"><i class="fas fa-history"></i> Histórico</div>
+        </footer>
+    </div>
+    
+    <script src="js/simulado.js"></script>
+    <script type="module" src="./js/api.js"></script>
+    <script type="module" src="./js/app.js"></script>
+
+</body>
+</html>
