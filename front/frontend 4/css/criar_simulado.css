@@ -59,7 +59,8 @@ body {
 }
 
 .input-group input,
-.input-group textarea {
+.input-group textarea,
+#module-select {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
@@ -67,8 +68,8 @@ body {
 }
 
 .selected-questions-container {
-    max-height: 200px; /* Altura máxima da área de questões */
-    overflow-y: auto; /* Adicionar rolagem */
+    max-height: 200px;
+    overflow-y: auto;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 10px;
@@ -80,7 +81,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* Estilo da caixinha da questão */
 .questao-list {
     display: flex;
     flex-direction: column;
@@ -95,7 +95,7 @@ body {
     display: flex;
     align-items: center;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    height: 40px; /* Limitar altura */
+    height: 40px;
     white-space: nowrap;
     overflow: hidden;
 }
@@ -104,10 +104,10 @@ body {
     font-size: 14px;
     color: #555;
     overflow: hidden;
-    text-overflow: ellipsis; /* Adicionar reticências */
+    text-overflow: ellipsis;
 }
 
-.add-question-btn {
+.add-question-btn, .save-btn {
     background-color: #FF9600;
     color: white;
     padding: 15px 30px;
@@ -117,7 +117,6 @@ body {
     font-size: 16px;
 }
 
-/* Rodapé */
 .footer-nav {
     background-color: #04345A;
     display: flex;
@@ -137,11 +136,26 @@ body {
     cursor: pointer;
 }
 
-.nav-item span {
-    font-size: 16px;
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    max-height: 80vh; 
+    overflow-y: auto; 
 }
 
-/* Modal */
+/* .close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #FF9600;
+}
 .modal {
     display: none;
     position: fixed;
@@ -153,31 +167,28 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-}
+} */
 
-.modal-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-}
-
+/* Estilizando o botão de fechar "X" no modal */
 .close {
     position: absolute;
-    right: 20px;
     top: 10px;
+    right: 15px;
     font-size: 24px;
     cursor: pointer;
-    color: #FF9600;
+    color: #FF9600; /* Cor laranja para combinar com o estilo */
 }
 
-.save-btn {
-    background-color: #FF9600;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }

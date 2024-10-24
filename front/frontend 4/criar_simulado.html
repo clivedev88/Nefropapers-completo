@@ -29,13 +29,35 @@
             <div class="selected-questions-container">
                 <h2>Questões Selecionadas</h2>
                 <div id="questao-list" class="questao-list">
-                    <!-- As questões serão inseridas aqui dinamicamente dentro das caixinhas -->
+                    <!-- As questões serão inseridas aqui dinamicamente -->
                 </div>
             </div>
 
             <!-- Botões -->
             <div class="action-buttons">
                 <button id="add-question-btn" class="add-question-btn">+ Adicionar Questões</button>
+                <button id="salvarSimulado" class="save-btn">Salvar Simulado</button>
+            </div>
+        </div>
+
+        <!-- Modal de Seleção de Questões -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Selecione Módulos e Questões</h2>
+                <div class="input-group">
+                    <label for="module-select">Selecione Módulos</label>
+                    <select id="module-select" multiple>
+                        <option value="modulo1">Módulo 1</option>
+                        <option value="modulo2">Módulo 2</option>
+                        <option value="modulo3">Módulo 3</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="quantidade-questoes">Quantidade de Questões</label>
+                    <input type="number" id="quantidade-questoes" placeholder="Digite a quantidade de questões">
+                </div>
+                <button id="save-questions-btn" class="save-btn">Salvar</button>
             </div>
         </div>
 
@@ -45,32 +67,10 @@
             <div class="nav-item">Testes</div>
             <div class="nav-item">Histórico</div>
         </footer>
-
-        <!-- Modal de Seleção de Questões -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Selecione Módulos e Questões</h2>
-                <select id="module-select">
-                    <option value="modulo1">Módulo 1</option>
-                    <option value="modulo2">Módulo 2</option>
-                </select>
-
-                <ul id="question-options">
-                    <li><input type="checkbox" value="Questão 1"> Questão 1</li>
-                    <li><input type="checkbox" value="Questão 2"> Questão 2</li>
-                    <li><input type="checkbox" value="Questão 3"> Questão 3</li>
-                </ul>
-
-                <button id="save-questions-btn" class="save-btn">Salvar</button>
-            </div>
-        </div>
-
     </div>
 
-    <script src="js/criar_simulado.js"></script>
-    <script type="module" src="./js/api.js"></script>
-    <script type="module" src="./js/app.js"></script>
+    <script src="js/criar_simulado.js"></script> 
+    <script src="js/integracao.js"></script> 
 
 </body>
 </html>

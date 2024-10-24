@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/simulado.css">
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@latest/build/jwt-decode.min.js"></script>
+
+    <title>Simulados</title>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Cabeçalho com seta de voltar e botão "Criar Simulado" -->
+        <header class="simulado-header">
+            <span class="back-arrow">&lt;</span>
+            <h1>Simulados</h1>
+<!-- Botão de criação de simulado no frontend 3 (simulado.html) -->
+            <button class="create-simulado" onclick="window.location.href='/frontend4/criar_simulado.html'">Criar Simulado</button>
+        </header>
+
+        <!-- Loader adicionado -->
+        <div id="loader" class="loader" style="display:none;">Carregando...</div>
+
+        <!-- Contêiner de simulados -->
+        <section class="simulado-container">
+            <!-- Meus Simulados -->
+            <div class="section-title">Meus Simulados</div>
+            <div class="simulado-list" id="meus-simulados"></div>
+            
+            <div class="divider"></div>
+            
+            <!-- Simulados Disponíveis -->
+            <div class="section-title">Simulados Disponíveis</div>
+            <div class="simulado-list" id="simulados-disponiveis"></div>
+        </section>
+        
+        <!-- Pop-up com informações do Simulado -->
+        <div class="simulado-popup" id="simulado-popup">
+            <div class="popup-content">
+                <span class="close-popup" id="close-popup">&times;</span>
+                <h2 id="popup-title">Título do Simulado</h2>
+                <p id="popup-description">Descrição do simulado.</p>
+                <p id="popup-questions">Quantidade de questões: <strong>10</strong></p>
+                <p id="popup-modules">Módulos: <strong>Módulo 1, Módulo 2</strong></p>
+                <button class="start-btn-popup">Iniciar Simulado</button>
+            </div>
+        </div>
+        
+        <!-- Rodapé interativo -->
+        <footer class="footer-nav">
+            <div class="nav-item"><i class="fas fa-home"></i> Home</div>
+            <div class="nav-item"><i class="fas fa-clipboard"></i> Testes</div>
+            <div class="nav-item"><i class="fas fa-history"></i> Histórico</div>
+        </footer>
+    </div>
+    
+    <script src="js/simulado.js"></script> 
+    <script src="js/integracao.js"></script>
+</body>
+</html>
